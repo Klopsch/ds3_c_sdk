@@ -851,6 +851,10 @@ ds3_request* ds3_init_get_object_for_job(const char* bucket_name, const char* ob
     return (ds3_request*) request;
 }
 
+ds3_request* ds3_init_head_object(const char* bucket_name, const char* object_name) {
+    return (ds3_request*) _common_request_init(HTTP_HEAD, _build_path("/", bucket_name, object_name));
+}
+
 ds3_request* ds3_init_delete_object(const char* bucket_name, const char* object_name) {
     return (ds3_request*) _common_request_init(HTTP_DELETE, _build_path("/", bucket_name, object_name));
 }
